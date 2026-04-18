@@ -7,43 +7,35 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     text-align: center;
     color: white;
-    overflow-x: hidden;
 }
 
 /* Container */
 .container {
     margin-top: 80px;
-    animation: fadeIn 2s ease-in;
 }
 
-/* Heading animation */
+/* Heading */
 h1 {
     font-size: 50px;
     animation: float 2s infinite ease-in-out;
 }
 
-/* Image styling */
+/* Image */
 .photo {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    border: 6px solid white;
+    border: 5px solid white;
     margin: 20px;
-    transition: transform 0.5s;
-}
-
-.photo:hover {
-    transform: scale(1.1) rotate(5deg);
 }
 
 /* Message */
 .message {
-    font-size: 22px;
-    margin: 20px;
+    font-size: 20px;
 }
 
 /* Button */
@@ -55,31 +47,19 @@ button {
     background: white;
     color: #ff4b7d;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-button:hover {
-    background: #ff4b7d;
-    color: white;
-}
-
-/* Hidden surprise */
+/* Surprise text */
 #surprise {
     display: none;
-    margin-top: 20px;
     font-size: 24px;
-    animation: fadeIn 2s;
+    margin-top: 20px;
 }
 
-/* Animations */
+/* Animation */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    50% { transform: translateY(-10px); }
 }
 
 /* Confetti */
@@ -87,7 +67,6 @@ button:hover {
     position: fixed;
     width: 10px;
     height: 10px;
-    background: white;
     top: 0;
     animation: fall linear forwards;
 }
@@ -103,40 +82,47 @@ button:hover {
 <body>
 
 <div class="container">
-    <h1>🎉 Happy Birthday! 🎉</h1>
+    <h1>🎉 Happy Birthday 🎉</h1>
 
-    <!-- Replace with your image -->
+    <!-- Your Photo -->
     <img src="myphoto.jpg" class="photo">
 
     <p class="message">
-        Wishing you happiness, success, and lots of love ❤️
+        Wishing you happiness, success and lots of love ❤️
     </p>
 
+    <!-- Play Music Button -->
+    <button onclick="playMusic()">Play Music 🎵</button>
+
+    <br><br>
+
+    <!-- Surprise Button -->
     <button onclick="showSurprise()">Click for Surprise 🎁</button>
 
+    <!-- Hidden Message -->
     <div id="surprise">
         🎂 You are amazing! Stay blessed always 💖 🎂
     </div>
 </div>
 
-<!-- Music -->
-<audio id="music" autoplay loop>
+<!-- Audio -->
+<audio id="music">
     <source src="birthday.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+function playMusic() {
+    document.getElementById("music").play();
+}
+
 function showSurprise() {
     document.getElementById("surprise").style.display = "block";
     startConfetti();
 }
 
-/* Confetti effect */
-<script>
 function startConfetti() {
     for (let i = 0; i < 100; i++) {
-
         let confetti = document.createElement("div");
-
         confetti.classList.add("confetti");
 
         confetti.style.left = Math.random() * 100 + "vw";
@@ -153,15 +139,6 @@ function startConfetti() {
     }
 }
 </script>
-    <audio controls autoplay loop>
-  <source src="birthday.mp3" type="audio/mpeg">
-</audio>
-    
-<audio src="music/birthday.mp3"></audio>
-<button onclick="document.getElementById('music').play()">
-Play Music 🎵
-</button>
 
-<audio id="music">
-  <source src="birthday.mp3" type="audio/mpeg">
-</audio>
+</body>
+</html>
